@@ -85,7 +85,9 @@ public class TestDriverManager {
         desiredCapabilities.addArguments("--no-sandbox");
         desiredCapabilities.addArguments("--disable-dev-shm-usage");
         desiredCapabilities.addArguments("--incognito");
-       driver = new ChromeDriver(desiredCapabilities);
+        //driver = new ChromeDriver(desiredCapabilities);
+        driver = new ChromeDriver();
+       // driver=driver.manage().window().maximize();
         return driver;
     }
 
