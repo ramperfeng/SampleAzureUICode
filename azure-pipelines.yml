@@ -9,16 +9,7 @@ stages:
     steps:
     - checkout: self
    
-        
-    - task: owaspzap@1
-      inputs:
-        aggressivemode: true
-        threshold: '50'
-        port: '8080'
-      displayName: 'Owasp Scan'
-     
-      
-    - task: Maven@3
+  - task: Maven@3
       displayName: 'Maven pom.xml'
       inputs:
         mavenPomFile: 'pom.xml'
@@ -29,7 +20,16 @@ stages:
         publishJUnitResults: true
         testResultsFiles: '**/surefire-reports/TEST-*.xml'
         goals: 'clean test' 
-
+      
+    - task: owaspzap@1
+      inputs:
+        aggressivemode: true
+        threshold: '50'
+        port: '8080'
+      displayName: 'Owasp Scan'
+     
+      
+    
     - bash: |
         sudo npm install -g handlebars-cmd
         sudo cat <<EOF > owaspzap/nunit-template.hbs
