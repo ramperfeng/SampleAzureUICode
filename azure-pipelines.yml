@@ -10,7 +10,12 @@ stages:
     - checkout: self
 
     
-
+    - task: Maven@3
+      displayName: 'Maven pom.xml'
+      inputs:
+        goals: 'clean test'
+        testResultsFiles: '**/surefire-reports/*.xml' 
+        
     - task: owaspzap@1
       inputs:
         aggressivemode: true
@@ -18,11 +23,7 @@ stages:
         port: '8080'
       displayName: 'Owasp Scan'
      
-    - task: Maven@3
-      displayName: 'Maven pom.xml'
-      inputs:
-        goals: 'clean test'
-        testResultsFiles: '**/surefire-reports/*.xml' 
+
 
     - bash: |
         sudo npm install -g handlebars-cmd
