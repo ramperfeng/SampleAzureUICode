@@ -21,8 +21,8 @@ stages:
     - task: Maven@3
       displayName: 'Maven pom.xml'
       inputs:
-      goals: 'clean test'
-      testResultsFiles: '**/surefire-reports/*.xml' 
+        goals: 'clean test'
+        testResultsFiles: '**/surefire-reports/*.xml' 
 
     - bash: |
         sudo npm install -g handlebars-cmd
