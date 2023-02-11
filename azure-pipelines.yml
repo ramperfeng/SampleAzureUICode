@@ -13,6 +13,8 @@ stages:
       
     - task: owaspzap@1
       inputs:
+        ls -ltr
+        pwd
         aggressivemode: true
         threshold: '50'
         port: '8080'
