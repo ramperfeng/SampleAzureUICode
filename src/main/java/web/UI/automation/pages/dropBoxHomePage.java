@@ -26,7 +26,7 @@ public class dropBoxHomePage {
     private WebElement productsLink;
     @FindBy(xpath = "//*[@id=\"nav-item-horizontal-2\"]/div/div/div/div/ul/li[5]/a/div/span/span")
     private WebElement ITSolutionLink;
-    @FindBy(xpath ="//*[@id="nav-item-horizontal-2-controlled"]/div/div/div/div/ul/li[5]/a")
+    @FindBy(xpath ="//*[@id=\"nav-item-horizontal-2-controlled\"]/div/div/div/div/ul/li[5]/a")
     private WebElement pricing;
 
 
